@@ -5,7 +5,7 @@
 | Introducción al Analytic & Big Data                   | 3       | Si    |
 | Tecnologías y Procesamiento de Datos                  | 2       | No    |
 | Digital Transformation, Digital Strategy              | 3       | Si    |
-| Estadística para la toma de decisiones                | 3       | No    |
+| Estadística para la toma de decisiones                | 3       | Si    |
 | Iniciación a la programación Estadística con R        | 3       | No    |
 | Aplicando Inteligencia Artificial                     | 2       | No    |
 | Aprendizaje Automático (Machine Learning) con Python  | 3       | No    |

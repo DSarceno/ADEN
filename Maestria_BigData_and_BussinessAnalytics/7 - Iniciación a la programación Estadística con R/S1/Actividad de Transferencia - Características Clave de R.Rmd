@@ -1,0 +1,66 @@
+---
+title: "Actividad de Transferencia - Características Clave de R"
+output: pdf_document
+date: "2025-01-27"
+---
+
+
+Solución a la actividad de transferencia: Características Clave de R.
+
+1. Crea un vector llamado edad con los siguientes valores: 25, 30, 35, 40, 45, 50.
+
+
+```{r}
+edad <- c(25, 30, 35, 40, 45, 50)
+edad
+```
+
+2. Crea otro vector llamado "salario" con los siguientes valores: 5000, 6000, 7000, 8000, 9000, 10000.
+
+```{r}
+salario <- c(5000, 6000, 7000, 8000, 9000, 10000)
+salario
+```
+
+3. Calcula el promedio del vector "salario" utilizando la función mean() y guárdalo en una variable llamada "promedio_salario".
+
+```{r}
+promedio_salario <- mean(salario)
+promedio_salario
+```
+
+4. Imprime en pantalla el promedio del salario utilizando la función print(). El resultado debe tener el siguiente formato: "El promedio del salario es: [valor del promedio]".
+
+```{r}
+print(paste("El promedio del salario es:", promedio_salario))
+```
+
+5. Utiliza una estructura de control if-else para verificar si el promedio del salario es mayor o igual a 8000. Si es verdadero, imprime en pantalla "El promedio del salario es alto", de lo contrario, imprime "El promedio del salario es bajo".
+
+```{r}
+if (promedio_salario >= 8000) {
+  print("El promedio del salario es alto")
+} else {
+  print("El promedio del salario es bajo")
+}
+```
+
+6. Crea una función llamada "incremento_salario" que tome como argumento un vector de salarios y un porcentaje de incremento. La función debe calcular el nuevo salario después de aplicar el incremento porcentual a cada elemento del vector y retornar el resultado.
+
+```{r}
+incremento_salario <- function(salarios, porcentaje) {
+  return(salarios * (1 + porcentaje / 100))
+}
+```
+
+7. Llama a la función "incremento_salario" pasando como argumentos el vector "salario" y un porcentaje de incremento del 10%. Almacena el resultado en una variable llamada "salario_incrementado".
+
+```{r}
+salario_incrementado <- incremento_salario(salario, 10)
+```
+
+8. Imprime en pantalla el vector "salario_incrementado" utilizando la función print(). El resultado debe tener el siguiente formato: "El salario incrementado es: [vector de salarios incrementados]".
+
+```{r}
+print(paste("El salario incrementado es:", toString(salario_incrementado)))
+```
