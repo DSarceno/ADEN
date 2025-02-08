@@ -1,0 +1,87 @@
+---
+title: "Analisis y manipulacion de datos"
+author: "Diego Sarceño"
+date: "2025-02-08"
+output: pdf_document
+---
+
+Solución a la actividad de transferencia: Análisis y Manipulación de Datos.
+
+1. Cargar el archivo "datos.csv" y guardarlo en un dataframe llamado "datos"
+
+```{r}
+datos <- read.csv("datos.csv")
+```
+
+2. Imprimir en pantalla la estructura del dataframe
+
+```{r}
+str(datos)
+```
+
+3. Obtener un resumen estadístico básico del dataframe
+
+```{r}
+summary(datos)
+```
+
+4. Filtrar el dataframe para incluir solo las filas donde la variable "edad" sea mayor o igual a 30
+
+```{r}
+datos_filtrados <- subset(datos, Edad >= 30)
+```
+
+5. Calcular la media de la variable "salario" en el dataframe "datos_filtrados"
+
+```{r}
+media_salario <- mean(datos_filtrados$Salario)
+```
+
+6. Imprimir en pantalla el valor de la media del salario
+
+```{r}
+print(paste("La media del salario es: ", media_salario))
+```
+
+7. Calcular el rango intercuartílico de la variable "edad" en el dataframe "datos"
+
+```{r}
+rango_intercuartilico <- IQR(datos$Edad)
+```
+
+8. Imprimir en pantalla el valor del rango intercuartílico
+
+```{r}
+print(paste("El rango intercuartílico de la edad es: ", rango_intercuartilico))
+```
+
+9. Crear una función "incremento_salario" que tome un dataframe y un porcentaje de incremento
+
+```{r}
+incremento_salario <- function(df, porcentaje) {
+  df$Salario <- df$Salario * (1 + porcentaje / 100)
+  return(df)
+}
+```
+
+10. Llamar a la función "incremento_salario" con un incremento del 5%
+
+```{r}
+datos_incrementados <- incremento_salario(datos, 5)
+```
+
+11. Imprimir en pantalla las primeras 5 filas del dataframe "datos_incrementados"
+
+```{r}
+head(datos_incrementados, 5)
+```
+
+
+
+
+
+
+
+
+
+
