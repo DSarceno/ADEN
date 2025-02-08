@@ -1,0 +1,113 @@
+---
+title: "Visualizacion de Datos"
+author: "Diego Sarceño"
+date: "2025-02-08"
+output: pdf_document
+---
+
+Solución a la actividad de transferencia: Visualización de Datos.
+
+1. Cargamos el módulo de datos:
+```{r}
+data(iris)
+```
+
+Cargamos las bibliotecas.
+```{r}
+library(ggplot2)
+library(plotly)
+library(dplyr)
+```
+
+
+
+2. Crear un gráfico de dispersión de Sepal.Length vs. Sepal.Width
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_point()
+  ggtitle("Gráfico de dispersión de Sepal.Length vs. Sepal.Width")
+```
+
+
+3. Crear un gráfico de caja para visualizar la distribución de Petal.Length según la especie
+
+```{r}
+ggplot(iris, aes(x = Species, y = Petal.Length)) +
+  geom_boxplot() +
+  ggtitle("Distribución de Petal.Length según la especie")
+```
+
+4. Crear un gráfico de barras interactivo de la variable Species
+
+```{r}
+plot_ly(data = iris, x = ~Species, type = "bar")
+```
+
+
+5. Eliminar las filas con valores faltantes en un dataframe df
+
+```{r}
+df <- iris  # Simulación de un dataframe con datos
+# Eliminar filas con valores faltantes
+df <- df[complete.cases(df), ]
+```
+
+
+6. Calcular la media de la variable Sepal.Width después de la imputación
+
+```{r}
+media_sepal_width <- mean(df$Sepal.Width, na.rm = TRUE)
+print(media_sepal_width)
+```
+
+7. Crear un gráfico de densidad de la variable Petal.Width utilizando ggplot2
+
+```{r}
+ggplot(iris, aes(x = Petal.Width)) +
+  geom_density(fill = "blue", alpha = 0.5) +
+  ggtitle("Gráfico de densidad de Petal.Width")
+```
+
+8. Realizar un suavizado de los datos utilizando stat_smooth() en ggplot2
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  stat_smooth(method = "loess") +
+  ggtitle("Suavizado de datos con stat_smooth()")
+```
+
+9. Utilizar la biblioteca dplyr para realizar una agrupación por especie y calcular la media de Petal.Length
+
+```{r}
+resumen <- iris %>%
+  group_by(Species) %>%
+  summarise(media_Petal_Length = mean(Petal.Length))
+print(resumen)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
