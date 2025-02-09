@@ -1,0 +1,140 @@
+---
+title: "Actividad Bloque Integrador"
+author: "Diego Sarceño"
+date: "2025-02-09"
+output: html_document
+---
+
+Solución a la actividad de transferencia del Bloque Integrador.
+
+## Parte 1: Carga y exploración de datos
+
+```{r carga_exploracion}
+# 1. Cargar dataset iris
+data(iris)
+
+# 2. Explorar estructura y resumen estadístico
+str(iris)
+summary(iris)
+```
+
+
+## Parte 2: Visualización con ggplot2
+
+```{r librerias_ggplot, message=FALSE}
+library(ggplot2)
+```
+
+### 1. Gráfico de caja con media personalizada
+```{r grafico_caja}
+ggplot(iris, aes(x = Species, y = Petal.Width)) +
+  geom_boxplot() +
+  stat_summary(
+    fun = mean, 
+    geom = "point", 
+    color = "yellow", 
+    size = 5, 
+    shape = 17 # Cambia el shape a preferencia
+  )
+```
+
+### 2. Gráfico de violín con media personalizada
+```{r grafico_violin}
+ggplot(iris, aes(x = Species, y = Petal.Width)) +
+  geom_violin() +
+  stat_summary(
+    fun = mean, 
+    geom = "point", 
+    color = "yellow", 
+    size = 5, 
+    shape = 17
+  )
+```
+
+## Parte 3: Gráficos interactivos con plotly
+
+```{r librerias_plotly, message=FALSE}
+library(plotly)
+```
+
+### 1. Gráfico de caja interactivo con plotly
+```{r grafico_caja_plotly}
+p <- ggplot(iris, aes(x = Species, y = Petal.Width)) +
+  geom_boxplot()
+ggplotly(p)
+```
+
+## Parte 4: Limpieza y transformación de datos
+
+```{r librerias_mice, message=FALSE}
+library(mice)
+```
+
+### 1. Eliminación de valores faltantes o imputación
+```{r limpieza_datos}
+# Ejemplo con eliminación de NA
+iris_clean <- na.omit(iris)
+
+# Ejemplo con imputación usando mice
+imp <- mice(iris, method = "pmm", m = 5)
+iris_imputed <- complete(imp)
+
+# Mostrar estructura después de limpieza
+str(iris_clean)
+str(iris_imputed)
+```
+
+
+## Parte 5: Análisis estadístico y síntesis con dplyr
+
+```{r librerias_dplyr, message=FALSE}
+library(dplyr)
+```
+
+### 1. Cálculo del IQR de Sepal.Width por Species
+```{r iqr_species}
+iris %>%
+  group_by(Species) %>%
+  summarise(IQR_Sepal_Width = IQR(Sepal.Width))
+```
+
+### 2. Gráfico de barras apiladas
+```{r grafico_barras}
+ggplot(iris, aes(x = Species, fill = Species)) +
+  geom_bar() +
+  labs(title = "Proporción de observaciones por especie")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
